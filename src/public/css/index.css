@@ -176,6 +176,10 @@
     margin-top: 10px;
 }
 
+.error__first-name {
+    width: 45%;
+}
+
 .form-button{
     text-align: center;
 }

@@ -17,16 +17,20 @@
                 <span class="form__label--required">※</span>
             </div>
             <div class="form__group-content">
-                <div class="form__input-name">
-                    <input type="text" name="last_name" value="{{ old('last_name', $contact['last_name'] ?? '') }}" placeholder="例: 山田">
+                <div class="form__input-name">placeholder="例: 山田"
+                    <input type="text" name="last_name" value="{{ old('last_name', $contact['last_name'] ?? '') }}" >
                     <input type="text" name="first_name" value="{{ old('first_name', $contact['first_name'] ?? '') }}" placeholder="例: 太郎">
                 </div>
                 <div class="form__input--error">
                     <div class="error__last-name">
-                        <!-- 姓を入力してください -->
+                        @if ($errors->has('last_name'))
+                        {{ $errors->first('last_name') }}
+                        @endif
                     </div>
                     <div class="error__first-name">
-                        <!-- 名を入力してください -->
+                        @if ($errors->has('first_name'))
+                        {{ $errors->first('first_name') }}
+                        @endif
                     </div>
                 </div>
             </div>
@@ -58,7 +62,9 @@
                     </div>
                 </div>
                 <div class="form__input--error">
-                    <!-- 性別を選択してください -->
+                        @if ($errors->has('gender'))
+                        {{ $errors->first('gender') }}
+                        @endif
                 </div>
             </div>
         </div>
@@ -72,7 +78,9 @@
                     <input type="email" name="email" value="{{ old('email', $contact['email'] ?? '') }}" placeholder="例: test@example.com">
                 </div>
                 <div class="form__input--error">
-                    <!-- メールアドレスを入力してください -->
+                        @if ($errors->has('email'))
+                        {{ $errors->first('email') }}
+                        @endif
                 </div>
             </div>
         </div>
@@ -90,7 +98,15 @@
                     <input type="text" name="tel3" value="{{ old('tel3', $contact['tel3'] ?? '') }}" placeholder="5678">
                 </div>
                 <div class="form__input--error">
-                    <!-- 電話番号を入力してください -->
+                        @if ($errors->has('tel1'))
+                        {{ $errors->first('tel1') }}
+                        @endif
+                        @if ($errors->has('tel2'))
+                        {{ $errors->first('tel2') }}
+                        @endif
+                        @if ($errors->has('tel3'))
+                        {{ $errors->first('tel3') }}
+                        @endif
                 </div>
             </div>
         </div>
@@ -104,7 +120,9 @@
                     <input type="text" name="address" value="{{ old('address', $contact['address'] ?? '') }}" placeholder="例: 東京都渋谷区千駄ヶ谷1-2-3">
                 </div>
                 <div class="form__input--error">
-                    <!-- 住所を入力してください -->
+                        @if ($errors->has('address'))
+                        {{ $errors->first('address') }}
+                        @endif
                 </div>
             </div>
         </div>
@@ -134,7 +152,9 @@
                         @endforeach
                     </select>
                     <div class="form__input--error">
-                        <!-- お問い合わせの種類を選択してください -->
+                        @if ($errors->has('category_id'))
+                        {{ $errors->first('category_id') }}
+                        @endif
                     </div>
                 </div>
             </div>
@@ -149,7 +169,9 @@
                     <textarea name="detail" placeholder="お問い合わせ内容をご記載ください">{{ old('detail', $contact['detail'] ?? '') }}</textarea>
                 </div>
                 <div class="form__input--error">
-                        <!-- お問い合わせ内容を入力してください -->
+                        @if ($errors->has('detail'))
+                        {{ $errors->first('detail') }}
+                        @endif
                     </div>
             </div>
         </div>

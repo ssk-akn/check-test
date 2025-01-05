@@ -73,15 +73,7 @@
         </div>
         <div class="buttons-wrapper">
             <button class="confirm-button__submit" type="submit">送信</button>
-        </div>
-    </form>
-    <form action="/" class="edit-form" method="post">
-        @csrf
-        @foreach ($contact as $key => $value)
-        <input type="hidden" name="{{ $key }}" value="{{ $value }}">
-        @endforeach
-        <div class="buttons-wrapper">
-            <button class="correct-button__submit">修正</button>
+            <button class="correct-button__submit" formaction="{{ url()->previous() }}" formmethod="GET">修正</button>
         </div>
     </form>
 </div>
